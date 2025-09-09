@@ -1,2 +1,7 @@
 streamlit
 openai
+cohere
+google-generativeai
+beautifulsoup4
+requests
+PyMuPDF

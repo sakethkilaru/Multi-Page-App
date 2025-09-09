@@ -1,11 +1,12 @@
 import streamlit as st
 
+# Multi-page navigation (HW Manager)
 pg = st.navigation(
     {
-        "Labs": [
-            st.Page("pages/lab2.py", title="Lab 2 - Blank Page", icon="📝"),
-            st.Page("pages/lab1.py", title="Lab 1 - Document Q&A", icon="📄"),
-        ]
+        "HW Manager": [
+            st.Page("HWs/HW1.py", title="HW1 - Document Q&A", icon="📄"),
+            st.Page("HWs/HW2.py", title="HW2 - URL Summarizer", icon="🌐"),
+        ],
     }
 )
 
