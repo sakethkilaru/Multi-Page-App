@@ -89,7 +89,7 @@ if prompt := st.chat_input("Ask about the documents:"):
     elif vendor=="Mistral":
         from mistralai.client import MistralClient
         client = MistralClient(api_key=st.secrets["MISTRAL_API_KEY"])
-        resp = client.chat(model="mistral-7b-v0.1", messages=messages_with_system)
+        resp = client.chat(model="mistral-large", messages=messages_with_system)
         response_text = resp.choices[0].message["content"]
         with st.chat_message("assistant"): st.markdown(response_text)
     else:  # Gemini
