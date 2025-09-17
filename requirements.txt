@@ -1,6 +1,7 @@
-streamlit>=1.32
+streamlit
 openai
-anthropic
-mistralai
-beautifulsoup4
 requests
+beautifulsoup4
+pandas
+mistralai
+google-generativeai
