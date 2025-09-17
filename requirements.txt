@@ -1,7 +1,6 @@
-streamlit
+streamlit>=1.32
 openai
-cohere
-google-generativeai
+anthropic
+mistralai
 beautifulsoup4
 requests
-PyMuPDF
