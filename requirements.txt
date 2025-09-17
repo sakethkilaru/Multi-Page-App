@@ -1,7 +1,8 @@
 streamlit
 openai
+PyMuPDF
 requests
 beautifulsoup4
-pandas
-mistralai
+cohere
 google-generativeai
+mistralai
