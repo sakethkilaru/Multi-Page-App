@@ -36,7 +36,6 @@ docs_context = ""
 if url1: docs_context += f"\nFrom {url1}:\n{fetch_text(url1)}"
 if url2: docs_context += f"\nFrom {url2}:\n{fetch_text(url2)}"
 
-
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -87,11 +86,26 @@ if prompt := st.chat_input("Ask about the documents:"):
         with st.chat_message("assistant"):
             response_text = st.write_stream(stream)
     elif vendor=="Mistral":
-        from mistralai.client import MistralClient
-        client = MistralClient(api_key=st.secrets["MISTRAL_API_KEY"])
-        resp = client.chat(model="mistral-large-latest", messages=messages_with_system)
-        response_text = resp.choices[0].message["content"]
-        with st.chat_message("assistant"): st.markdown(response_text)
+        import requests, json
+        model = "mistral-small"  # or "mistral-medium" if you want a larger one
+        headers = {
+            "Authorization": f"Bearer {st.secrets['MISTRAL_API_KEY']}",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "model": model,
+            "messages": messages_with_system,
+            "stream": False
+        }
+        r = requests.post("https://api.mistral.ai/v1/chat/completions",
+                          headers=headers, data=json.dumps(payload), timeout=60)
+        data = r.json()
+        if "choices" not in data:
+            response_text = f"Mistral error: {data.get('error', data)}"
+        else:
+            response_text = data["choices"][0]["message"]["content"]
+        with st.chat_message("assistant"):
+            st.markdown(response_text)
     else:  # Gemini
         import google.generativeai as genai
         genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
