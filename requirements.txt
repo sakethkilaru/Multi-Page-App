@@ -7,4 +7,6 @@ cohere
 google-generativeai
 mistralai
 chromadb
+pysqlite3-binary
+
 
