@@ -6,3 +6,5 @@ beautifulsoup4
 cohere
 google-generativeai
 mistralai
+chromadb
+
