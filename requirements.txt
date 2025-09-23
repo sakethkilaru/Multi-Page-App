@@ -8,5 +8,8 @@ google-generativeai
 mistralai
 chromadb
 pysqlite3-binary
+langchain
+faiss-cpu
+
 
 
