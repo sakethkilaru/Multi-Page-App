@@ -3,7 +3,6 @@
 # HW4 — iSchool Student Organizations Chatbot (RAG)
 # ---------------------------
 
-# --- Fix for sqlite3 in Streamlit with ChromaDB ---
 __import__("pysqlite3")
 import sys
 sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
