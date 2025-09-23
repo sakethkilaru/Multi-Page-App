@@ -236,21 +236,3 @@ Retrieved evidence:
     st.session_state.messages.append({"role":"assistant","content":response_text})
     st.session_state.memory.append({"q":prompt,"a":response_text})
     if len(st.session_state.memory)>5: st.session_state.memory=st.session_state.memory[-5:]
-
-# -------------------------
-# Sidebar evaluation guidance
-# -------------------------
-st.sidebar.header("Evaluation (Part 6)")
-st.sidebar.markdown("""
-Suggested test questions:
-1. How do I join a student organization at the iSchool?
-2. Who should I contact to start a new club?
-3. Where can I find the student org event calendar?
-4. Are there funding opportunities for student org activities?
-5. What are the eligibility requirements for student organization officers?
-
-Instructions:
-- Test each question with the 3 models.
-- Record: Answer text, whether RAG was used, which source files were cited, accuracy vs source, and notes.
-- Summarize which model performed better/worse and why (accuracy, following prompt, hallucination, speed/cost).
-""")
