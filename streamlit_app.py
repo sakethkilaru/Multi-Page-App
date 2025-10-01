@@ -9,7 +9,7 @@ except ImportError:
 st.set_page_config(page_title="HWs")
 
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["HW1", "HW2", "HW3", "HW4"])
+page = st.sidebar.radio("Go to", ["HW1", "HW2", "HW3", "HW4", "HW5"])
 
 if page == "HW1":
     exec(open("HWs/HW1.py").read())
@@ -19,3 +19,5 @@ elif page == "HW3":
     exec(open("HWs/HW3.py").read())
 elif page == "HW4":
     exec(open("HWs/HW4.py").read())
+elif page == "HW5":
+    exec(open("HWs/HW5.py").read())
