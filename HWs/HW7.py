@@ -30,8 +30,10 @@ using **RAG + LLMs (OpenAI / Mistral)**.
 # ----------------------------
 # Load CSV (for reference)
 # ----------------------------
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # go up one level from /HWs/
-CSV_PATH = os.path.join(BASE_DIR, "Example_news_info_for_testing.csv")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # stay inside /mount/src/multi-page-app/HWs
+CSV_PATH = os.path.join(BASE_DIR, "..", "Example_news_info_for_testing.csv")
+CSV_PATH = os.path.abspath(CSV_PATH)
+
 
 st.write("📂 Looking for CSV at:", CSV_PATH)
 if not os.path.exists(CSV_PATH):
