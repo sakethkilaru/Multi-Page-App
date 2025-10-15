@@ -30,19 +30,17 @@ using **RAG + LLMs (OpenAI / Mistral)**.
 # ----------------------------
 # Load CSV (for reference)
 # ----------------------------
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # stay inside /mount/src/multi-page-app/HWs
-CSV_PATH = os.path.join(BASE_DIR, "..", "Example_news_info_for_testing.csv")
-CSV_PATH = os.path.abspath(CSV_PATH)
-
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+CSV_PATH = os.path.join(BASE_DIR, "Example_news_info_for_testing.csv")
 
 st.write("📂 Looking for CSV at:", CSV_PATH)
 if not os.path.exists(CSV_PATH):
-    st.error("❌ CSV file not found! Files in this directory:")
+    st.error("❌ CSV file not found! Listing current directory:")
     st.write(os.listdir(BASE_DIR))
+    st.stop()
 else:
     df = pd.read_csv(CSV_PATH)
-st.subheader("Preview of news data")
-st.dataframe(df.head(10), use_container_width=True)
+    st.success("✅ CSV loaded successfully!")
 
 # ----------------------------
 # Load prebuilt Chroma database
