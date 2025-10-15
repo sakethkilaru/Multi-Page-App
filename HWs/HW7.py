@@ -30,16 +30,15 @@ using **RAG + LLMs (OpenAI / Mistral)**.
 # ----------------------------
 # Load CSV (for reference)
 # ----------------------------
-CSV_PATH = os.path.join(os.path.dirname(__file__), "..", "Example_news_info_for_testing.csv")
-CSV_PATH = os.path.abspath(CSV_PATH)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # go up one level from /HWs/
+CSV_PATH = os.path.join(BASE_DIR, "Example_news_info_for_testing.csv")
 
-df = pd.read_csv(CSV_PATH)
 st.write("📂 Looking for CSV at:", CSV_PATH)
 if not os.path.exists(CSV_PATH):
-    st.error("❌ CSV file not found. Make sure Example_news_info_for_testing.csv is in the repo root.")
+    st.error("❌ CSV file not found! Files in this directory:")
+    st.write(os.listdir(BASE_DIR))
 else:
     df = pd.read_csv(CSV_PATH)
-
 st.subheader("Preview of news data")
 st.dataframe(df.head(10), use_container_width=True)
 
