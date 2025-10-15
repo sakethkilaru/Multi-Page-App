@@ -30,7 +30,7 @@ using **RAG + LLMs (OpenAI / Mistral)**.
 # ----------------------------
 # Load CSV (for reference)
 # ----------------------------
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../multi-page-app"))
 CSV_PATH = os.path.join(BASE_DIR, "Example_news_info_for_testing.csv")
 
 st.write("📂 Looking for CSV at:", CSV_PATH)
